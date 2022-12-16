@@ -25,14 +25,24 @@
         tools:layout="@layout/fragment_second">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_SecondFragment_to_FourthFragment"
+            app:destination="@id/FourthFragment" />
     </fragment>
     <fragment
         android:id="@+id/ThirdFragment"
         android:name="com.example.eventer.ThirdFragment"
-        android:label="Third LAbel"
+        android:label="Third Fragment"
         tools:layout="@layout/fragment_third">
+        <action
+            android:id="@+id/action_ThirdFragment_to_FourthFragment"
+            app:destination="@id/FourthFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/FourthFragment"
+        android:name="com.example.eventer.FourthFragment"
+        android:label="Fourth Fragment"
+        tools:layout="@layout/fragment_fourth">
 
 
     </fragment>
