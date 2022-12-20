@@ -45,5 +45,13 @@
         tools:layout="@layout/fragment_fourth">
 
 
+        <action
+            android:id="@+id/action_FourthFragment_to_FifthFragment"
+            app:destination="@id/FifthFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/FifthFragment"
+        android:name="com.example.eventer.FifthFragment"
+        android:label="Fifth Fragment"
+        tools:layout="@layout/fragment_fifth"/>
 </navigation>

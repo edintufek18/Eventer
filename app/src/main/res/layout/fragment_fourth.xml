@@ -38,8 +38,8 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="352dp"
-        android:layout_height="227dp"
+        android:layout_width="351dp"
+        android:layout_height="621dp"
         android:layout_marginTop="232dp"
         android:layout_marginEnd="20dp"
         android:src="@android:drawable/screen_background_light"
@@ -85,12 +85,30 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/rest" />
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HALO 1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
             <ImageView
                 android:layout_margin="20dp"
                 android:id="@+id/imageView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/rest" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HALO2"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
             <ImageView
                 android:layout_margin="20dp"
@@ -99,12 +117,16 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/rest" />
 
-            <ImageView
-                android:layout_margin="20dp"
-                android:id="@+id/imageView"
+            <TextView
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/rest" />
+                android:text="HALO3"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+
         </LinearLayout>
     </ScrollView>
 
