@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView2"
+
+        android:layout_width="415dp"
+        android:layout_height="731dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        android:scaleY="3.1"
+        android:src="@drawable/concept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="483dp"
+
+        android:layout_height="427dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="408dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context="com.androxp.randika.main.MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <Button
+            android:id="@+id/Table1"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Table 1" />
+
+        <Button
+            android:id="@+id/Table2"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/Table1"
+            android:text="Table 2" />
+
+        <Button
+            android:id="@+id/Table3"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/Table2"
+            android:text="Table 3" />
+
+        <Button
+            android:id="@+id/Table4"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Table1"
+            android:layout_alignStart="@+id/Table1"
+            android:layout_alignLeft="@+id/Table1"
+            android:text="Table 4" />
+
+        <Button
+            android:id="@+id/Table5"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/Table4"
+            android:layout_alignEnd="@+id/Table2"
+            android:layout_alignRight="@+id/Table2"
+            android:text="Table 5" />
+
+        <Button
+            android:id="@+id/Table6"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Table3"
+            android:layout_alignEnd="@+id/Table3"
+            android:layout_alignRight="@+id/Table3"
+            android:text="Table 6" />
+
+        <Button
+            android:id="@+id/Table7"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Table4"
+            android:layout_alignStart="@+id/Table4"
+            android:layout_alignLeft="@+id/Table4"
+            android:text="Table 7" />
+
+        <Button
+            android:id="@+id/Table8"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/Table5"
+            android:layout_alignLeft="@+id/Table5"
+            android:layout_alignTop="@+id/Table7"
+            android:text="Table 8" />
+
+        <Button
+            android:id="@+id/Table9"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Table6"
+            android:layout_alignEnd="@+id/Table6"
+            android:layout_alignRight="@+id/Table6"
+            android:text="Table 9" />
+
+        <Button
+            android:id="@+id/Table10"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Table7"
+            android:layout_alignStart="@+id/Table7"
+            android:layout_alignLeft="@+id/Table7"
+            android:text="Table 10" />
+
+        <Button
+            android:id="@+id/Table11"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Table8"
+            android:layout_toStartOf="@+id/Table3"
+            android:layout_toLeftOf="@+id/Table3"
+            android:text="Table 11" />
+
+        <Button
+            android:id="@+id/Table12"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Table9"
+            android:layout_alignEnd="@+id/Table9"
+            android:layout_alignRight="@+id/Table9"
+            android:text="Table 12" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="354dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="108dp"
+        android:text="Which table you want to order"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

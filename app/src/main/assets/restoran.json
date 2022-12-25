@@ -1,0 +1,18 @@
+{
+"restaurants":[
+{
+  "name": "Halo1",
+"tables": "10"
+},
+{
+
+"name": "Halo2",
+"tables": "15"
+},
+{
+
+"Name": "Halo3",
+"tables": "20"
+}
+]
+}
