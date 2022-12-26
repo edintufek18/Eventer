@@ -92,6 +92,14 @@ public class FourthFragment extends Fragment{
                         .navigate(R.id.action_FourthFragment_to_MasiRezervacija);
             }
         });
+
+        binding.buttonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(FourthFragment.this)
+                        .navigate(R.id.action_FourthFragment_to_InfoRestaurant);
+            }
+        });
     }
 
 }
