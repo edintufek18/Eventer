@@ -81,6 +81,12 @@
             android:text="Pick Date"
             android:textAllCaps="false" />
 
+        <TextView
+            android:id="@+id/timepickers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&quot; " />
+
     </RelativeLayout>
 
 
