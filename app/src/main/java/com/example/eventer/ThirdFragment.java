@@ -89,9 +89,8 @@ public class ThirdFragment extends Fragment{
 
 
             final String mRequestBody = jsonBody.toString();
-            String blabla =ime.getText().toString();
-            System.out.println("Test" + blabla);
-            System.out.println(mRequestBody);
+
+            //System.out.println(mRequestBody);
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
@@ -172,6 +171,7 @@ public class ThirdFragment extends Fragment{
                     NavHostFragment.findNavController(ThirdFragment.this)
                             .navigate(R.id.action_ThirdFragment_to_FourthFragment);
                 }
+
             }
         });
     }
