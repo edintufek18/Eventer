@@ -43,10 +43,9 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
@@ -99,7 +98,7 @@
         android:layout_marginTop="144dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:hint="Name and surname"
+        android:hint="Name "
         android:inputType="textPersonName"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,8 +108,8 @@
         android:id="@+id/buttonThird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="712dp"
-        android:layout_marginEnd="148dp"
+        android:layout_marginTop="612dp"
+        android:layout_marginEnd="160dp"
         android:text="SignUP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -126,50 +125,24 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
-        app:layout_constraintVertical_bias="0.185" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress"
-        android:layout_width="253dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="address"
-        android:inputType="textPostalAddress"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintVertical_bias="0.354" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="246dp"
         android:layout_height="67dp"
         android:ems="10"
-        android:hint="city"
+        android:hint="Surname"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress" />
-
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="253dp"
-        android:layout_height="61dp"
-        android:ems="10"
-        android:hint="postal code"
-        android:inputType="number"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -178,7 +151,8 @@
         android:text="Agree on terms and licenses"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
