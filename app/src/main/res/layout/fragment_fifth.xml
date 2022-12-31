@@ -35,17 +35,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="104dp">
 
         <!--on below line we are creating
             a text for our app-->
+
+        <!--on below line we are creating a text view-->
+
+        <!--on below line we are creating
+            a button for date picker-->
+
         <TextView
             android:id="@+id/idTVHeading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/idTVSelectedDate"
             android:layout_centerInParent="true"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
             android:gravity="center"
             android:padding="10dp"
             android:text="Date Picker Dialog in Android"
@@ -54,14 +65,16 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!--on below line we are creating a text view-->
         <TextView
             android:id="@+id/idTVSelectedDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/idBtnPickDate"
             android:layout_centerInParent="true"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="64dp"
             android:gravity="center"
             android:padding="10dp"
             android:text="Date"
@@ -70,22 +83,30 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!--on below line we are creating
-            a button for date picker-->
         <Button
             android:id="@+id/idBtnPickDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:text="Pick Date"
             android:textAllCaps="false" />
 
         <TextView
             android:id="@+id/timepickers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="&quot; " />
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/idBtnPickDate"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="184dp"
+            android:layout_marginEnd="53dp"
+            android:text="click me"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 

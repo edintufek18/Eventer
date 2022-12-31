@@ -30,30 +30,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></View>
 
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="215dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Search..."
-        android:inputType="textPersonName"
-        android:textColorHint="@color/black"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="389dp"
+        android:layout_height="618dp"
+        android:layout_marginTop="104dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
