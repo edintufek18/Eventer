@@ -3,7 +3,9 @@ package com.example.eventer;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,8 +56,7 @@ public class ThirdFragment extends Fragment{
     private RequestQueue requestQueue;
     private String url = "https://tilenkelc.eu/Eventer/api/register";
     private String token = "";
-
-
+    private boolean alreadyTaken = false;
 
     @Override
     public View onCreateView(
@@ -82,10 +83,7 @@ public class ThirdFragment extends Fragment{
     public void registracija(){
 
         Context context = requireActivity().getApplicationContext();
-        // CharSequence text = "Hello toast!";
-        int duration = Toast.LENGTH_SHORT;
-        //Toast toast = Toast.makeText(context, text, duration);
-        //toast.show();
+        int duration = Toast.LENGTH_LONG;
 
         if(TextUtils.isEmpty(ime.getText().toString())) {
             CharSequence text = "Name input cannot be empty!";
@@ -143,7 +141,22 @@ public class ThirdFragment extends Fragment{
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {}
+                    public void onResponse(String response) {
+                        if(alreadyTaken){
+                            Context context = requireActivity().getApplicationContext();
+                            int duration = Toast.LENGTH_LONG;
+                            CharSequence text = "Email already taken!";
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        }else{
+                            if(!token.equals("")) {
+                                ((GlobalClass) requireActivity().getApplication()).setToken(token);
+
+                                NavHostFragment.findNavController(ThirdFragment.this)
+                                        .navigate(R.id.action_ThirdFragment_to_FourthFragment);
+                            }
+                        }
+                    }
 
                 }, new Response.ErrorListener() {
                     @Override
@@ -174,7 +187,12 @@ public class ThirdFragment extends Fragment{
                                 new String(response.data);
                             }
 
-                            token = responseString;
+                            if(responseString.contains("zaseden")){
+                                alreadyTaken = true;
+                            }else{
+                                alreadyTaken = false;
+                                token = responseString;
+                            }
                             System.out.println(responseString);
 
                         }
@@ -211,11 +229,6 @@ public class ThirdFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 registracija();
-                if(token != "") {
-                    NavHostFragment.findNavController(ThirdFragment.this)
-                            .navigate(R.id.action_ThirdFragment_to_FourthFragment);
-                }
-
             }
         });
     }

@@ -24,12 +24,21 @@ import java.util.HashMap;
 
 public class FourthFragment extends Fragment{
     private FragmentFourthBinding binding;
+
+    private String token = "";
+    ;
+
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
         binding = FragmentFourthBinding.inflate(inflater, container, false);
+
+        token = ((GlobalClass) getActivity().getApplication()).getToken();
+
+        System.out.println("new" + token);
+
         return binding.getRoot();
 
 
