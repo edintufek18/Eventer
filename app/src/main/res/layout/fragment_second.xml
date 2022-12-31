@@ -33,48 +33,43 @@
         android:id="@+id/button_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="240dp"
+        android:layout_marginTop="88dp"
         android:text="LOG IN"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress3"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="258dp"
         android:layout_height="65dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="108dp"
         android:ems="10"
         android:hint="email"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
         android:layout_width="255dp"
         android:layout_height="66dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="396dp"
-        android:layout_marginBottom="323dp"
+        android:layout_marginTop="88dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
