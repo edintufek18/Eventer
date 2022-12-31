@@ -33,6 +33,8 @@ public class FifthFragment extends Fragment {
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int tHour,tMinute;
     private TextView timePickers;
+    public String infoDate ="";
+    public String infoHour = "";
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState){
 
         View root = inflater.inflate(R.layout.fragment_fifth,container,false);
@@ -51,29 +53,35 @@ public class FifthFragment extends Fragment {
                 dialog.show();
             }
         });
+        timePickers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                        tHour = hour;
+                        tMinute = minute;
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(0,0,0,tHour,tMinute);
+                        timePickers.setText(DateFormat.format("hh:mm aa",calendar));
+                        infoHour = DateFormat.format("hh:mm aa",calendar).toString();
+                    }
+                },12,0,false);
+                timePickerDialog.show();
+            }
+        });
+
+
 
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month +1;
 //                Log.d(TAG,"on Date ")
-                String date = day + "  " + month + " " + year;
+                String date = day + " " + month + " " + year;
                 selectedDateTV.setText(date);
-                timePickers.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                                    tHour = hour;
-                                    tMinute = minute;
-                                    Calendar calendar = Calendar.getInstance();
-                                    calendar.set(0,0,0,tHour,tMinute);
-                                    timePickers.setText(DateFormat.format("hh:mm aa",calendar));
-                            }
-                        },12,0,false);
-                    }
-                });
+                infoDate = date;
+
             }
         };
 
