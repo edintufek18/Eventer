@@ -93,13 +93,13 @@ public class FourthFragment extends Fragment{
             }
         });
 
-        binding.buttonInfo.setOnClickListener(new View.OnClickListener() {
+        /*binding.buttonInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FourthFragment.this)
                         .navigate(R.id.action_FourthFragment_to_InfoRestaurant);
             }
-        });
+        });*/
     }
 
 }

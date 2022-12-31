@@ -22,9 +22,9 @@
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="336dp"
-        android:layout_height="652dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="28dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="36dp"
         android:src="@android:drawable/screen_background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,56 +32,42 @@
     <EditText
         android:id="@+id/editTextTextEmailAddress3"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-        android:layout_width="258dp"
+        android:layout_width="260dp"
         android:layout_height="65dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="38dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="email"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="255dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="323dp"
-        android:ems="10"
-        android:hint="password"
-        android:inputType="textPassword"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="255dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="323dp"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="225dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
-        android:hint="repeat password"
+        android:hint="Confirm password"
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -89,70 +75,92 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible"
-        app:layout_constraintGuide_begin="65dp" />
+        app:layout_constraintGuide_begin="-7dp" />
 
     <EditText
         android:id="@+id/Name"
-        android:layout_width="259dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="68dp"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
         android:hint="Name"
-
         android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/Surname"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/buttonThird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="612dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="38dp"
         android:text="SignUP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="244dp"
-        android:layout_height="49dp"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
-        android:hint="mobile number"
+        android:hint="Mobile number"
         android:inputType="phone"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
-        app:layout_constraintVertical_bias="0.354" />
+        app:layout_constraintVertical_bias="0.419" />
 
     <EditText
         android:id="@+id/Surname"
-        android:layout_width="246dp"
-        android:layout_height="67dp"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
         android:hint="Surname"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="252dp"
-        android:layout_height="56dp"
-        android:text="Agree on terms and licenses"
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="38dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
