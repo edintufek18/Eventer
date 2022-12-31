@@ -3,9 +3,9 @@ package com.example.eventer;
 import android.app.Application;
 
 public class GlobalClass extends Application {
-    private String token;
-    private String category_id;
-    private String subcategory_id;
+    private String token = "";
+    private String category_id = "";
+    private String subcategory_id = "";
 
     public String getToken() {
         return token;

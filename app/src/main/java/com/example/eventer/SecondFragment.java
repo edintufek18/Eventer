@@ -60,6 +60,12 @@ public class SecondFragment extends Fragment {
         passwordLI = (EditText) root.findViewById(R.id.editTextTextPassword2);
         sendLI = (Button) root.findViewById(R.id.button_second);
 
+        token = ((GlobalClass) getActivity().getApplication()).getToken();
+        if(!token.equals("")){
+            NavHostFragment.findNavController(SecondFragment.this)
+                    .navigate(R.id.action_SecondFragment_to_FourthFragment);
+        }
+
         return root;
     }
 

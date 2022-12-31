@@ -76,6 +76,12 @@ public class ThirdFragment extends Fragment{
         gesloConfirm = (EditText) root.findViewById(R.id.editTextTextPassword);
         send = (Button) root.findViewById(R.id.buttonThird);
 
+        token = ((GlobalClass) getActivity().getApplication()).getToken();
+        if(!token.equals("")){
+            NavHostFragment.findNavController(ThirdFragment.this)
+                    .navigate(R.id.action_ThirdFragment_to_FourthFragment);
+        }
+
         return root;
     }
 
