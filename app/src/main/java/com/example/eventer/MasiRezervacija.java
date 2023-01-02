@@ -34,7 +34,7 @@ import java.util.Map;
 public class MasiRezervacija extends Fragment {
     private @NonNull
     MasiRezervacijaBinding binding;
-    private String url = "https://tilenkelc.eu/Eventer/api/category/products/" + "1";
+    private String url = "https://tilenkelc.eu/Eventer/api/category/products/1";
     private RequestQueue requestQueue;
     private String token;
 
@@ -106,7 +106,7 @@ public class MasiRezervacija extends Fragment {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Authorization", token);
+                headers.put("Authorization", " Bearer {" + token +"}");
                 headers.put("Accept", "application/json");
                 headers.put("Content-Type", "application/json");
                 return headers;
