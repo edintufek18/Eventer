@@ -23,50 +23,63 @@
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="351dp"
-        android:layout_height="621dp"
-        android:layout_marginTop="232dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="650dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="30dp"
         android:src="@android:drawable/screen_background_light"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textview_first2"
-        android:layout_width="290dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="260dp"
+        android:layout_width="313dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="587dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Which restaurant would you like to order?"
-        android:textAllCaps="true"
+        android:gravity="center"
+        android:text="Available restaurants for reservation"
+        android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <ScrollView
-        android:layout_width="406dp"
-        android:layout_height="370dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="340dp"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        android:layout_height="550dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck">
 
         <LinearLayout
+            android:id="@+id/categories_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
             <ImageView
-                android:layout_margin="20dp"
                 android:id="@+id/imageView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:src="@drawable/rest" />
 
             <TextView
@@ -79,10 +92,10 @@
                 android:textSize="24sp" />
 
             <ImageView
-                android:layout_margin="20dp"
                 android:id="@+id/imageView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:src="@drawable/rest" />
 
             <TextView
@@ -95,10 +108,10 @@
                 android:textSize="24sp" />
 
             <ImageView
-                android:layout_margin="20dp"
                 android:id="@+id/imageView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:src="@drawable/rest" />
 
             <TextView
@@ -113,17 +126,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/buttonInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="INFO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

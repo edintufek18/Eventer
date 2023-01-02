@@ -44,10 +44,10 @@ public class MasiRezervacija extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        token = "WFVPhlqSfjrJA3Sg8NvpL1brvQmTf8csPvCr6fCKaPzvg7vN74rwEOAnjq6a";
+        token = ((GlobalClass) getActivity().getApplication()).getToken();
         binding = MasiRezervacijaBinding.inflate(inflater, container, false);
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
-        prikaziProdukte();
+        //prikaziProdukte();
 
         return binding.getRoot();
 
@@ -55,8 +55,6 @@ public class MasiRezervacija extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
 
         for (int table = 1; table < 13; table++) {
             int idView = getResources().getIdentifier("Table" + table, "id", getContext().getPackageName());
