@@ -96,17 +96,14 @@
             android:text="Pick Date"
             android:textAllCaps="false" />
 
-        <TextView
-            android:id="@+id/timepickers"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
+        <Spinner
+            android:id="@+id/timeSpinner"
+            android:layout_width="373dp"
+            android:layout_height="54dp"
             android:layout_below="@+id/idBtnPickDate"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="184dp"
-            android:layout_marginEnd="53dp"
-            android:text="click me"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_marginTop="81dp"
+            android:contentDescription="test"
+            android:spinnerMode="dropdown" />
 
     </RelativeLayout>
 

@@ -5,7 +5,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,6 +23,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.eventer.databinding.MasiRezervacijaBinding;
 
 import org.json.JSONArray;
@@ -34,9 +38,10 @@ import java.util.Map;
 public class MasiRezervacija extends Fragment {
     private @NonNull
     MasiRezervacijaBinding binding;
-    private String url = "https://tilenkelc.eu/Eventer/api/category/products/1";
+    private String url = "https://tilenkelc.eu/Eventer/api/category/products/";
     private RequestQueue requestQueue;
     private String token;
+    private String category_id;
 
 
     public View onCreateView(
@@ -45,9 +50,11 @@ public class MasiRezervacija extends Fragment {
     ) {
 
         token = ((GlobalClass) getActivity().getApplication()).getToken();
+        category_id = ((GlobalClass) getActivity().getApplication()).getCategory();
+
         binding = MasiRezervacijaBinding.inflate(inflater, container, false);
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
-        //prikaziProdukte();
+        prikaziProdukte();
 
         return binding.getRoot();
 
@@ -55,34 +62,59 @@ public class MasiRezervacija extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
 
-        for (int table = 1; table < 13; table++) {
-            int idView = getResources().getIdentifier("Table" + table, "id", getContext().getPackageName());
-            View eventView = view.findViewById(idView);
-            eventView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    NavHostFragment.findNavController(MasiRezervacija.this)
-                            .navigate(R.id.action_MasiRezervacija_to_FifthFragment);
-                }
-            });
+    private void addItem(String id, String name, String image) {
+        LinearLayout ll = (LinearLayout) getActivity().findViewById(R.id.products_layout);
+        System.out.println(ll.getChildCount());
 
-        }
+        ImageView imageView = new ImageView(getActivity());
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((GlobalClass) requireActivity().getApplication()).setSubcategory(id);
+
+                NavHostFragment.findNavController(MasiRezervacija.this)
+                        .navigate(R.id.action_MasiRezervacija_to_FifthFragment);
+            }
+        });
+
+        Glide.with(getActivity())
+                .load(image)
+                .into(imageView);
+        ll.addView(imageView);
+
+        TextView textView = new TextView(getActivity());
+        textView.setText(name);
+        textView.setTextSize(30);
+        textView.setGravity(1);
+        ll.addView(textView);
+
+
+        TextView space = new TextView(getActivity());
+        space.setText(" ");
+
+        ll.addView(space);
     }
 
     public void prikaziProdukte() {
-
-        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+        System.out.println(category_id);
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, url + category_id, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                ArrayList<String> data = new ArrayList<>();
+                //ArrayList<String> data = new ArrayList<>();
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject object = response.getJSONObject(i);
                         String id = object.getString("id");
                         String name = object.getString("name");
+                        String image = object.getString("image");
 
-                        data.add(id + " " + name);
+                        System.out.println( image);
+                        //data.add(id + " " + name);
+
+                        addItem(id, name, "https://tilenkelc.eu/Eventer/public" + image);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                         return;
@@ -104,7 +136,7 @@ public class MasiRezervacija extends Fragment {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Authorization", " Bearer {" + token +"}");
+                //headers.put("Authorization", " Bearer {" + token +"}");
                 headers.put("Accept", "application/json");
                 headers.put("Content-Type", "application/json");
                 return headers;

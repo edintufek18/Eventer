@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
+import android.widget.Space;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -85,46 +86,37 @@ public class FourthFragment extends Fragment{
         }
     }
 
-    private void ShowDetail() {
+    private void addItem(String id, String name, String image) {
         LinearLayout ll = (LinearLayout) getActivity().findViewById(R.id.categories_layout);
         System.out.println(ll.getChildCount());
-        String tmp = "https://tilenkelc.eu/Eventer/public/category_images/1_Restavracija_Halo.jpg";
 
-        for(int i = 10; i > 0; i--){
-            ImageView imageView = new ImageView(getActivity());
-            //imageView.setImageResource(R.drawable.rest);
+        ImageView imageView = new ImageView(getActivity());
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((GlobalClass) requireActivity().getApplication()).setCategory(id);
 
-            //Glide.with(getActivity()).load(new File("").diskCacheStrategy(DiskCacheStrategy.ALL).into(imageView);
-            Glide.with(getActivity())
-                    .load(tmp)
-                    .into(imageView);
+                NavHostFragment.findNavController(FourthFragment.this)
+                        .navigate(R.id.action_FourthFragment_to_MasiRezervacija);
+            }
+        });
 
-            //imageView.setImageBitmap(getBitmapFromURL("https://tilenkelc.eu/Eventer/public/category_images/1_Restavracija_Halo.jpg"));
-            ll.addView(imageView);
-        }
+        Glide.with(getActivity())
+                .load(image)
+                .into(imageView);
+        ll.addView(imageView);
 
-        System.out.println("asdasd");
+        TextView textView = new TextView(getActivity());
+        textView.setText(name);
+        textView.setTextSize(30);
+        textView.setGravity(1);
+        ll.addView(textView);
 
-        /*for (int id : idList) {
-            // Create LinearLayout
-            LinearLayout ll = new LinearLayout(getActivity());
-            ll.setOrientation(LinearLayout.HORIZONTAL);
 
-            // Create TextView for the item label
-            TextView txtLabel = new TextView(getActivity());
-            txtLabel.setText(getString(id) + ": ");
-            //		txtLabel.setTextSize(TypedValue.COMPLEX_UNIT_PT, 8);
-            ll.addView(txtLabel);
+        TextView space = new TextView(getActivity());
+        space.setText(" ");
 
-            // Create TextView for the item content
-            TextView txtContent = new TextView(getActivity());
-            txtContent.setText(getString(id));
-            txtContent.setTextSize(TypedValue.COMPLEX_UNIT_PT, 8);
-            //		txtLabel.setTextAppearance(getApplicationContext(), android.R.attr.textAppearanceMedium);
-            ll.addView(txtContent);
-            //Add button to LinearLayout defined in XML
-            llv.addView(ll);
-        }*/
+        ll.addView(space);
     }
 
     // GET REQUEST KATEGOTIJE
@@ -138,7 +130,7 @@ public class FourthFragment extends Fragment{
     private Response.Listener<JSONArray> jsonArrayListener = new Response.Listener<JSONArray>() {
         @Override
         public void onResponse(JSONArray response) {
-            ArrayList<String> data = new ArrayList<>();
+            //ArrayList<String> data = new ArrayList<>();
 
 
             for (int i = 0; i < response.length(); i++) {
@@ -147,18 +139,21 @@ public class FourthFragment extends Fragment{
                     String id = object.getString("id");
                     String name = object.getString("name");
                     String category_image = object.getString("category_image");
-                    String description = object.getString("description");
+                    //String description = object.getString("description");
 
 
-                    categID = id;
+                    //categID = id;
                     //System.out.println(categID);
-                    data.add(id + " " + name + " " + "https://tilenkelc.eu/Eventer/public"  + category_image + " " + description);
+                    //data.add(id + " " + name + " " + "https://tilenkelc.eu/Eventer/public"  + category_image + " " + description);
+
+                    addItem(id, name, "https://tilenkelc.eu/Eventer/public" + category_image);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                     return;
                 }
             }
-            System.out.println(Arrays.toString(data.toArray()));
+            //System.out.println(Arrays.toString(data.toArray()));
         }
 
     };
@@ -194,11 +189,10 @@ public class FourthFragment extends Fragment{
         }
         return json;
     }
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        ShowDetail();
-
+        /*
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset());
             JSONArray array = obj.getJSONArray("restaurants");
@@ -217,7 +211,7 @@ public class FourthFragment extends Fragment{
             e.printStackTrace();
         }
 
-        binding.imageView5.setOnClickListener(new View.OnClickListener() {
+        /*binding.imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FourthFragment.this)

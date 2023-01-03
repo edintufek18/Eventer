@@ -7,8 +7,10 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -22,12 +24,6 @@ import java.util.Calendar;
 
 public class FifthFragment extends Fragment {
 
-
-
-
-
-
-
     private Button pickDateBtn;
     private TextView selectedDateTV;
     private DatePickerDialog.OnDateSetListener dateSetListener;
@@ -35,12 +31,14 @@ public class FifthFragment extends Fragment {
     private TextView timePickers;
     public String infoDate ="";
     public String infoHour = "";
+
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState){
 
         View root = inflater.inflate(R.layout.fragment_fifth,container,false);
         pickDateBtn = root.findViewById(R.id.idBtnPickDate);
         selectedDateTV = root.findViewById(R.id.idTVSelectedDate);
-        timePickers = root.findViewById(R.id.timepickers);
+        //timePickers = root.findViewById(R.id.timepickers);
+
         pickDateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +51,7 @@ public class FifthFragment extends Fragment {
                 dialog.show();
             }
         });
-        timePickers.setOnClickListener(new View.OnClickListener() {
+        /*timePickers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
@@ -69,8 +67,7 @@ public class FifthFragment extends Fragment {
                 },12,0,false);
                 timePickerDialog.show();
             }
-        });
-
+        });*/
 
 
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -86,6 +83,21 @@ public class FifthFragment extends Fragment {
         };
 
         return root;
+    }
+
+    public void setTimes(){
+        String[] arraySpinner = new String[] {
+                "1", "2", "3", "4", "5", "6", "7"
+        };
+        System.out.println("asd");
+        Spinner s = (Spinner) getActivity().findViewById(R.id.timeSpinner);
+        System.out.println("asd");
+
+        ArrayAdapter<String> spinnerAdapter =  new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item, arraySpinner);
+
+        System.out.println("asd");
+
+        s.setAdapter(spinnerAdapter);
     }
 
 

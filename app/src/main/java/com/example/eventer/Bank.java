@@ -12,5 +12,11 @@ import androidx.navigation.fragment.NavHostFragment;
 
 public class Bank extends Fragment {
 
+    public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
 
+
+        View root = inflater.inflate(R.layout.fragment_fifth,container,false);
+        return root;
+
+    }
 }
