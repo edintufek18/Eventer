@@ -58,6 +58,9 @@
         android:label="Fifth Fragment"
         tools:layout="@layout/fragment_fifth"
         />
+    <action
+        android:id="@+id/action_FifthFragment_to_Bank"
+        app:destination="@id/Bank" />
 
     <fragment
         android:id="@+id/MasiRezervacija"
@@ -74,5 +77,9 @@
         android:name="com.example.eventer.InfoRestaurant"
         android:label="Info Restaurant"
         tools:layout="@layout/info_restaurant"/>
-
+    <fragment
+        android:id="@+id/Bank"
+        android:name="com.example.eventer.Bank"
+        android:label="Bank"
+        tools:layout="@layout/bank"/>
 </navigation>

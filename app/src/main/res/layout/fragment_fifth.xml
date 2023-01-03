@@ -101,9 +101,19 @@
             android:layout_width="373dp"
             android:layout_height="54dp"
             android:layout_below="@+id/idBtnPickDate"
-            android:layout_marginTop="81dp"
+            android:layout_marginTop="39dp"
             android:contentDescription="test"
             android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/paymentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timeSpinner"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="96dp"
+            android:text="Proceed to payment" />
 
     </RelativeLayout>
 

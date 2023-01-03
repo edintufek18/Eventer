@@ -17,6 +17,7 @@ import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
@@ -25,6 +26,7 @@ import java.util.Calendar;
 public class FifthFragment extends Fragment {
 
     private Button pickDateBtn;
+    private Button paymentButton;
     private TextView selectedDateTV;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int tHour,tMinute;
@@ -38,6 +40,7 @@ public class FifthFragment extends Fragment {
         pickDateBtn = root.findViewById(R.id.idBtnPickDate);
         selectedDateTV = root.findViewById(R.id.idTVSelectedDate);
         //timePickers = root.findViewById(R.id.timepickers);
+        paymentButton = root.findViewById(R.id.paymentButton);
 
         pickDateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +52,13 @@ public class FifthFragment extends Fragment {
                 DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog,
                         dateSetListener,year,month,day);
                 dialog.show();
+            }
+        });
+        paymentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(FifthFragment.this)
+                        .navigate(R.id.action_FifthFragment_to_Bank);
             }
         });
         /*timePickers.setOnClickListener(new View.OnClickListener() {
