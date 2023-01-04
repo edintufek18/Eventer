@@ -73,7 +73,6 @@
     <fragment
         android:id="@+id/InfoRestaurant"
         android:name="com.example.eventer.InfoRestaurant"
-<<<<<<< Updated upstream
         android:label="Info Restaurant"
         tools:layout="@layout/info_restaurant"/>
     <fragment
@@ -81,9 +80,4 @@
         android:name="com.example.eventer.Bank"
         android:label="Bank"
         tools:layout="@layout/bank"/>
-=======
-        android:label="Info"
-        tools:layout="@layout/info_restaurant" />
-
->>>>>>> Stashed changes
 </navigation>

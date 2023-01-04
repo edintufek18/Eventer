@@ -65,10 +65,9 @@ public class FifthFragment extends Fragment {
 
         pickDateBtn = root.findViewById(R.id.idBtnPickDate);
         selectedDateTV = root.findViewById(R.id.idTVSelectedDate);
-<<<<<<< Updated upstream
         //timePickers = root.findViewById(R.id.timepickers);
-        paymentButton = root.findViewById(R.id.paymentButton);
-=======
+        //paymentButton = root.findViewById(R.id.paymentButton);
+
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
 
         subcategory_id = ((GlobalClass) getActivity().getApplication()).getSubcategory();
@@ -79,7 +78,6 @@ public class FifthFragment extends Fragment {
         timeSpinner = root.findViewById(R.id.timeSpinner);
         timeSpinner.setVisibility(View.GONE);
         prikaziAvailable();
->>>>>>> Stashed changes
 
         pickDateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,34 +94,13 @@ public class FifthFragment extends Fragment {
                 dialog.show();
             }
         });
-<<<<<<< Updated upstream
-        paymentButton.setOnClickListener(new View.OnClickListener() {
+        /*paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FifthFragment.this)
                         .navigate(R.id.action_FifthFragment_to_Bank);
             }
-        });
-        /*timePickers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                        tHour = hour;
-                        tMinute = minute;
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.set(0,0,0,tHour,tMinute);
-                        timePickers.setText(DateFormat.format("hh:mm aa",calendar));
-                        infoHour = DateFormat.format("hh:mm aa",calendar).toString();
-                    }
-                },12,0,false);
-                timePickerDialog.show();
-            }
         });*/
-
-=======
->>>>>>> Stashed changes
 
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
