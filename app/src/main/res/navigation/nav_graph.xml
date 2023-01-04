@@ -48,9 +48,6 @@
         <action
             android:id="@+id/action_FourthFragment_to_MasiRezervacija"
             app:destination="@id/MasiRezervacija" />
-        <action
-            android:id="@+id/action_FourthFragment_to_InfoRestaurant"
-            app:destination="@id/InfoRestaurant" />
     </fragment>
     <fragment
         android:id="@+id/FifthFragment"
@@ -65,16 +62,18 @@
     <fragment
         android:id="@+id/MasiRezervacija"
         android:name="com.example.eventer.MasiRezervacija"
-        android:label="Masi rezervacija"
-        tools:layout="@layout/masi_rezervacija"/>
-    <action
-        android:id="@+id/action_MasiRezervacija_to_FifthFragment"
-        app:destination="@id/FifthFragment" />
+        android:label="Tables"
+        tools:layout="@layout/masi_rezervacija" >
+        <action
+            android:id="@+id/action_MasiRezervacija_to_FifthFragment"
+            app:destination="@id/FifthFragment" />
+    </fragment>
 
 
     <fragment
         android:id="@+id/InfoRestaurant"
         android:name="com.example.eventer.InfoRestaurant"
+<<<<<<< Updated upstream
         android:label="Info Restaurant"
         tools:layout="@layout/info_restaurant"/>
     <fragment
@@ -82,4 +81,9 @@
         android:name="com.example.eventer.Bank"
         android:label="Bank"
         tools:layout="@layout/bank"/>
+=======
+        android:label="Info"
+        tools:layout="@layout/info_restaurant" />
+
+>>>>>>> Stashed changes
 </navigation>

@@ -45,7 +45,6 @@ public class FourthFragment extends Fragment{
     private FragmentFourthBinding binding;
     private RequestQueue requestQueue;
     private String url = "https://tilenkelc.eu/Eventer/api/categories";
-    private String categID;
 
     private String token = "";
 
@@ -58,14 +57,11 @@ public class FourthFragment extends Fragment{
         binding = FragmentFourthBinding.inflate(inflater, container, false);
 
         token = ((GlobalClass) getActivity().getApplication()).getToken();
-        System.out.println("new" + token);
+        System.out.println("new " + token);
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
-        categID = ((GlobalClass) getActivity().getApplication()).getCategory();
         prikaziKategorije();
 
         return binding.getRoot();
-
-
     }
 
     public static Bitmap getBitmapFromURL(String src) {
@@ -86,7 +82,7 @@ public class FourthFragment extends Fragment{
         }
     }
 
-    private void addItem(String id, String name, String image) {
+    private void addItem(String id, String opens_at, String closes_at, String amount, String name, String image) {
         LinearLayout ll = (LinearLayout) getActivity().findViewById(R.id.categories_layout);
         System.out.println(ll.getChildCount());
 
@@ -95,6 +91,9 @@ public class FourthFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 ((GlobalClass) requireActivity().getApplication()).setCategory(id);
+                ((GlobalClass) requireActivity().getApplication()).setOpens_at(opens_at);
+                ((GlobalClass) requireActivity().getApplication()).setCloses_at(closes_at);
+                ((GlobalClass) requireActivity().getApplication()).setAmount(amount);
 
                 NavHostFragment.findNavController(FourthFragment.this)
                         .navigate(R.id.action_FourthFragment_to_MasiRezervacija);
@@ -135,27 +134,24 @@ public class FourthFragment extends Fragment{
 
             for (int i = 0; i < response.length(); i++) {
                 try {
+                    System.out.println(response.toString());
                     JSONObject object = response.getJSONObject(i);
                     String id = object.getString("id");
                     String name = object.getString("name");
+                    String opens_at = object.getString("opens_at");
+                    String closes_at = object.getString("closes_at");
+                    String amount = object.getString("amount");
                     String category_image = object.getString("category_image");
                     //String description = object.getString("description");
 
-
-                    //categID = id;
-                    //System.out.println(categID);
-                    //data.add(id + " " + name + " " + "https://tilenkelc.eu/Eventer/public"  + category_image + " " + description);
-
-                    addItem(id, name, "https://tilenkelc.eu/Eventer/public" + category_image);
+                    addItem(id, opens_at, closes_at, amount, name, "https://tilenkelc.eu/Eventer/public" + category_image);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                     return;
                 }
             }
-            //System.out.println(Arrays.toString(data.toArray()));
         }
-
     };
 
     private Response.ErrorListener errorListener = new Response.ErrorListener() {

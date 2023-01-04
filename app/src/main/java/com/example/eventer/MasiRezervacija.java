@@ -43,7 +43,6 @@ public class MasiRezervacija extends Fragment {
     private String token;
     private String category_id;
 
-
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
@@ -57,7 +56,6 @@ public class MasiRezervacija extends Fragment {
         prikaziProdukte();
 
         return binding.getRoot();
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
