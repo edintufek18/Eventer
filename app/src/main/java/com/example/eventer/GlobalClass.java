@@ -10,6 +10,9 @@ public class GlobalClass extends Application {
     private String closes_at = "";
     private String amount = "";
 
+    private String date = "";
+    private String time = "";
+
     public String getToken() {
         return token;
     }
@@ -51,4 +54,10 @@ public class GlobalClass extends Application {
     public void setAmount(String amount){
         this.amount = amount;
     }
+
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
+
+    public String getTime() { return time; }
+    public void setTime(String time) { this.time = time; }
 }

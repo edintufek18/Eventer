@@ -22,11 +22,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="331dp"
+        android:layout_width="0dp"
         android:layout_height="400dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="300dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="300dp"
         android:src="@android:drawable/screen_background_light"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/button_first"
-        android:layout_width="127dp"
+        android:layout_width="0dp"
         android:layout_height="63dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="183dp"
@@ -69,7 +69,7 @@
 
     <Button
         android:id="@+id/button_first2"
-        android:layout_width="127dp"
+        android:layout_width="0dp"
         android:layout_height="63dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="282dp"

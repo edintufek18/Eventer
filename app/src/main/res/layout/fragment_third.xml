@@ -21,22 +21,24 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="336dp"
+        android:layout_width="0dp"
         android:layout_height="600dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="40dp"
         android:src="@android:drawable/screen_background_light"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress3"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-        android:layout_width="260dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="290dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Email"
@@ -52,11 +54,11 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="260dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="225dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Confirm password"
         android:inputType="textPassword"
@@ -79,12 +81,12 @@
 
     <EditText
         android:id="@+id/Name"
-        android:layout_width="260dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
 
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Name"
         android:textColorHint="@color/black"
@@ -98,9 +100,9 @@
         android:id="@+id/buttonThird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="480dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginEnd="40dp"
         android:text="Sign UP"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHorizontal_bias="0.488"
@@ -109,10 +111,10 @@
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="260dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Mobile number"
         android:inputType="phone"
@@ -127,11 +129,11 @@
 
     <EditText
         android:id="@+id/Surname"
-        android:layout_width="260dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="95dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Surname"
         android:inputType="textPersonName"
@@ -146,11 +148,11 @@
 
     <EditText
         android:id="@+id/editTextTextPassword2"
-        android:layout_width="260dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="160dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"

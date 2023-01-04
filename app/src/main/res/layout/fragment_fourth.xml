@@ -22,7 +22,7 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="351dp"
+        android:layout_width="0dp"
         android:layout_height="650dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="44dp"
@@ -34,11 +34,11 @@
 
     <TextView
         android:id="@+id/textview_first2"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="53dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="587dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
@@ -54,25 +54,26 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="340dp"
+        android:layout_width="0dp"
 
         android:layout_height="550dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck">
 
         <LinearLayout
             android:id="@+id/categories_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
     </ScrollView>
 
 

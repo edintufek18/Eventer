@@ -21,8 +21,10 @@
 
     <View
         android:id="@+id/view3"
-        android:layout_width="351dp"
+        android:layout_width="0dp"
         android:layout_height="500dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="100dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,18 +72,35 @@
         <TextView
             android:id="@+id/idTVSelectedDate"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="94dp"
+            android:layout_marginTop="125dp"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="You don't have any selected date"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/selectedTimeText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="270dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Available times"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <Button
@@ -92,7 +111,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="221dp"
+            android:layout_marginBottom="270dp"
             android:text="Pick Date"
             android:textAllCaps="false" />
 
@@ -105,9 +124,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="291dp"
+            android:layout_marginTop="310dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="144dp"
+            android:layout_marginBottom="125dp"
             android:spinnerMode="dropdown"
             tools:ignore="SpeakableTextPresentCheck" />
 

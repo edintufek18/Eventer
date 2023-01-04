@@ -2,18 +2,22 @@ package com.example.eventer;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -31,9 +35,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormatSymbols;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
+import java.util.Formatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +50,7 @@ public class FifthFragment extends Fragment {
 
     private Button pickDateBtn;
     private TextView selectedDateTV;
+    private TextView selectedTimeText;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private String url = "https://tilenkelc.eu/Eventer/api/rent/full/";
     private RequestQueue requestQueue;
@@ -65,6 +73,7 @@ public class FifthFragment extends Fragment {
         pickDateBtn = root.findViewById(R.id.idBtnPickDate);
         selectedDateTV = root.findViewById(R.id.idTVSelectedDate);
         proceedBtn = root.findViewById(R.id.proceedBtn);
+        selectedTimeText = root.findViewById(R.id.selectedTimeText);
 
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
 
@@ -72,9 +81,9 @@ public class FifthFragment extends Fragment {
         opens_at = ((GlobalClass) getActivity().getApplication()).getOpens_at();
         closes_at = ((GlobalClass) getActivity().getApplication()).getCloses_at();
 
-
         timeSpinner = root.findViewById(R.id.timeSpinner);
         timeSpinner.setVisibility(View.GONE);
+        selectedTimeText.setVisibility(View.GONE);
         prikaziAvailable();
 
         pickDateBtn.setOnClickListener(new View.OnClickListener() {
@@ -96,8 +105,31 @@ public class FifthFragment extends Fragment {
         proceedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FifthFragment.this)
-                        .navigate(R.id.action_FifthFragment_to_Bank);
+                Context context = requireActivity().getApplicationContext();
+                int duration = Toast.LENGTH_LONG;
+
+                if(infoDate.isEmpty() || infoDate.equals("")) {
+                    CharSequence text = "Please select a date first!";
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                }else if(infoHour.isEmpty() || infoHour.equals("")) {
+                    CharSequence text = "Please select a time first!";
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                }else if(infoHour.equals("Select a time slot")) {
+                    CharSequence text = "Select a valid time slot!";
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                }else{
+                    ((GlobalClass) requireActivity().getApplication()).setDate(infoDate);
+                    ((GlobalClass) requireActivity().getApplication()).setTime(infoHour);
+
+                    NavHostFragment.findNavController(FifthFragment.this)
+                            .navigate(R.id.action_FifthFragment_to_Bank);
+                }
             }
         });
 
@@ -120,7 +152,6 @@ public class FifthFragment extends Fragment {
                     infoDate += day;
                 }
 
-                //timeSpinner.setVisibility(View.VISIBLE);
                 addTime();
             }
         };
@@ -135,6 +166,7 @@ public class FifthFragment extends Fragment {
 
     public void addTime(){
         timeSpinner.setVisibility(View.VISIBLE);
+        selectedTimeText.setVisibility(View.VISIBLE);
         clear();
 
         ArrayAdapter<String> adapter;
@@ -143,35 +175,61 @@ public class FifthFragment extends Fragment {
         int closes = Integer.parseInt(closes_at.split(":")[0]);
 
         List<String> list = new ArrayList<String>();
+        list.add("Select a time slot");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("HH");
+        Date date = new Date();
+        int current_time = Integer.parseInt(formatter.format(date)) + 1;
+
+        formatter = new SimpleDateFormat("yyyy-MM-dd");
+        date = new Date();
+        String current_date = formatter.format(date);
 
         for(int current = opens; current < closes; current++){
             List<Integer> tmp = new ArrayList<>();
-
-            System.out.println(infoDate);
 
             if(taken.containsKey(infoDate)){
                 tmp = taken.get(infoDate);
             }
 
-            System.out.println(tmp);
-
             if(tmp.isEmpty() || !tmp.contains(current)){
-                String from = "";
-                if(current < 10){
-                    from = "0" + String.valueOf(current);
-                }else{
-                    from = String.valueOf(current);
-                }
+                if(infoDate.equals(current_date)){
+                    if(current > current_time){
+                        String from = "";
+                        if(current < 10){
+                            from = "0" + String.valueOf(current);
+                        }else{
+                            from = String.valueOf(current);
+                        }
 
-                String to = "";
-                if((current + 1) < 10){
-                    to = "0" + String.valueOf(current + 1);
-                }else{
-                    to = String.valueOf(current + 1);
-                }
+                        String to = "";
+                        if((current + 1) < 10){
+                            to = "0" + String.valueOf(current + 1);
+                        }else{
+                            to = String.valueOf(current + 1);
+                        }
 
-                String item = from + ":00 - " +  to + ":00";
-                list.add(item);
+                        String item = from + ":00 - " +  to + ":00";
+                        list.add(item);
+                    }
+                }else{
+                    String from = "";
+                    if(current < 10){
+                        from = "0" + String.valueOf(current);
+                    }else{
+                        from = String.valueOf(current);
+                    }
+
+                    String to = "";
+                    if((current + 1) < 10){
+                        to = "0" + String.valueOf(current + 1);
+                    }else{
+                        to = String.valueOf(current + 1);
+                    }
+
+                    String item = from + ":00 - " +  to + ":00";
+                    list.add(item);
+                }
             }
         }
 
@@ -179,6 +237,18 @@ public class FifthFragment extends Fragment {
             android.R.layout.simple_spinner_dropdown_item, list);
 
         timeSpinner.setAdapter(adapter);
+
+        timeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                infoHour = selectedItem;
+            }
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+                // Nothing
+            }
+        });
     }
 
     public void prikaziAvailable() {

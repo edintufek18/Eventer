@@ -52,9 +52,8 @@
     <fragment
         android:id="@+id/FifthFragment"
         android:name="com.example.eventer.FifthFragment"
-        android:label="Fifth Fragment"
-        tools:layout="@layout/fragment_fifth"
-        />
+        android:label="Date of reservation"
+        tools:layout="@layout/fragment_fifth" />
     <action
         android:id="@+id/action_FifthFragment_to_Bank"
         app:destination="@id/Bank" />
@@ -78,6 +77,6 @@
     <fragment
         android:id="@+id/Bank"
         android:name="com.example.eventer.Bank"
-        android:label="Bank"
-        tools:layout="@layout/bank"/>
+        android:label="Payment"
+        tools:layout="@layout/bank" />
 </navigation>
