@@ -78,5 +78,9 @@
         android:id="@+id/Bank"
         android:name="com.example.eventer.Bank"
         android:label="Payment"
-        tools:layout="@layout/bank" />
+        tools:layout="@layout/bank" >
+        <action
+            android:id="@+id/action_Bank_to_FourthFragment"
+            app:destination="@id/FourthFragment" />
+    </fragment>
 </navigation>

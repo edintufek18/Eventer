@@ -36,6 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Bank extends Fragment {
+
     private Button submitPayment;
     private TextView creditCardInput;
     private TextView ccvInput;
@@ -133,21 +134,25 @@ public class Bank extends Fragment {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    /*if(invalidLogin){
-                        Context context = requireActivity().getApplicationContext();
-                        int duration = Toast.LENGTH_LONG;
-                        CharSequence text = "Invalid login details!";
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
-                    }else{
-                        if(!token.equals("")) {
-                            ((GlobalClass) requireActivity().getApplication()).setToken(token);
+                    try {
+                        JSONObject jObject = new JSONObject(response);
+                        String status = jObject.getString("status");
 
-                            NavHostFragment.findNavController(SecondFragment.this)
-                                    .navigate(R.id.action_SecondFragment_to_FourthFragment);
+                        if(status.equals("200")){
+                            NavHostFragment.findNavController(Bank.this)
+                                    .navigate(R.id.action_Bank_to_FourthFragment);
+                        }else{
+                            Context context = requireActivity().getApplicationContext();
+                            int duration = Toast.LENGTH_LONG;
+
+                            CharSequence text = "An error occured while submiting payment!";
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
                         }
-                    }*/
-                    System.out.println(response);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                 }
                 }, new Response.ErrorListener() {
                     @Override
@@ -159,8 +164,7 @@ public class Bank extends Fragment {
                     @Override
                     public Map<String, String> getHeaders() throws AuthFailureError {
                         Map<String, String> headers = new HashMap<>();
-                        //headers.put("Authorization", token);
-                        headers.put("Authorization", "Bearer" + " " + token);
+                        headers.put("Authorization", "Bearer" + " " + token.replace("\"", ""));
                         headers.put("Accept", "application/json");
                         headers.put("Content-Type", "application/json");
                         return headers;
@@ -180,12 +184,6 @@ public class Bank extends Fragment {
                                 new String(response.data);
                             }
 
-                            /*if(responseString.contains("Invalid login details")){
-                                invalidLogin = true;
-                            }else{
-                                invalidLogin = false;
-                                token = responseString;
-                            }*/
                             System.out.println(responseString);
 
                         }

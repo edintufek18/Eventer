@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -39,6 +41,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class FourthFragment extends Fragment{
@@ -120,124 +123,58 @@ public class FourthFragment extends Fragment{
 
     // GET REQUEST KATEGOTIJE
 
+
     public void prikaziKategorije() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                //ArrayList<String> data = new ArrayList<>();
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        System.out.println(response.toString());
+                        JSONObject object = response.getJSONObject(i);
+                        String id = object.getString("id");
+                        String name = object.getString("name");
+                        String opens_at = object.getString("opens_at");
+                        String closes_at = object.getString("closes_at");
+                        String amount = object.getString("amount");
+                        String category_image = object.getString("category_image");
+                        //String description = object.getString("description");
 
-        JsonArrayRequest request = new JsonArrayRequest(url, jsonArrayListener, errorListener);
-        requestQueue.add(request);
-    }
+                        addItem(id, opens_at, closes_at, amount, name, "https://tilenkelc.eu/Eventer/public" + category_image);
 
-    private Response.Listener<JSONArray> jsonArrayListener = new Response.Listener<JSONArray>() {
-        @Override
-        public void onResponse(JSONArray response) {
-            //ArrayList<String> data = new ArrayList<>();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        return;
+                    }
 
-
-            for (int i = 0; i < response.length(); i++) {
-                try {
-                    System.out.println(response.toString());
-                    JSONObject object = response.getJSONObject(i);
-                    String id = object.getString("id");
-                    String name = object.getString("name");
-                    String opens_at = object.getString("opens_at");
-                    String closes_at = object.getString("closes_at");
-                    String amount = object.getString("amount");
-                    String category_image = object.getString("category_image");
-                    //String description = object.getString("description");
-
-                    addItem(id, opens_at, closes_at, amount, name, "https://tilenkelc.eu/Eventer/public" + category_image);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return;
                 }
             }
-        }
-    };
-
-    private Response.ErrorListener errorListener = new Response.ErrorListener() {
-        @Override
-        public void onErrorResponse(VolleyError error) {
-            Log.d("REST error", error.getMessage());
-        }
-    };
-
-
-
-
-
-
-
-
-
-
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getActivity().getAssets().open("restoran.json"); // your file name
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("REST error", error.getMessage());
+            }
+        })
+        {
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Authorization", " Bearer " + token.replace("\"", ""));
+                headers.put("Accept", "application/json");
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
+        };
+        requestQueue.add(req);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        /*
-        try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray array = obj.getJSONArray("restaurants");
-            HashMap<String, String> list;
-            ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject o = array.getJSONObject(i);
-                String name = o.getString("name");
-                String seats = o.getString("seats");
-                list = new HashMap<>();
-                list.put("name",name);
-                list.put("seats",seats);
-                arrayList.add(list);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        /*binding.imageView5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FourthFragment.this)
-                        .navigate(R.id.action_FourthFragment_to_MasiRezervacija);
-            }
-        });
-
-        binding.imageView6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FourthFragment.this)
-                        .navigate(R.id.action_FourthFragment_to_MasiRezervacija);
-            }
-        });
-
-        binding.imageView7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FourthFragment.this)
-                        .navigate(R.id.action_FourthFragment_to_MasiRezervacija);
-            }
-        });
-
-        /*binding.buttonInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FourthFragment.this)
-                        .navigate(R.id.action_FourthFragment_to_InfoRestaurant);
-            }
-        });*/
     }
 
 }

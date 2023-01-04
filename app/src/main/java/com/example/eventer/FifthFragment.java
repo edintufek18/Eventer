@@ -24,6 +24,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -76,6 +78,7 @@ public class FifthFragment extends Fragment {
         selectedTimeText = root.findViewById(R.id.selectedTimeText);
 
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
+        token = ((GlobalClass) getActivity().getApplication()).getToken();
 
         subcategory_id = ((GlobalClass) getActivity().getApplication()).getSubcategory();
         opens_at = ((GlobalClass) getActivity().getApplication()).getOpens_at();
@@ -251,7 +254,7 @@ public class FifthFragment extends Fragment {
         });
     }
 
-    public void prikaziAvailable() {
+    /*public void prikaziAvailable() {
         JsonArrayRequest request = new JsonArrayRequest(url + subcategory_id, jsonArrayListener, errorListener);
         requestQueue.add(request);
     }
@@ -289,5 +292,56 @@ public class FifthFragment extends Fragment {
         public void onErrorResponse(VolleyError error) {
             Log.d("REST error", error.getMessage());
         }
-    };
+    };*/
+
+    public void prikaziAvailable() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, url + subcategory_id, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                //ArrayList<String> data = new ArrayList<>();
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject object = response.getJSONObject(i);
+                        String date = object.getString("date");
+                        String time_from = object.getString("time_from");
+                        String time_to = object.getString("time_to");
+
+                        int from = Integer.parseInt(time_from.split(":")[0]);
+                        int to = Integer.parseInt(time_to.split(":")[0]);
+
+                        List<Integer> tmp = new ArrayList<Integer>();
+                        for(int counter = from; counter < to; counter++){
+                            tmp.add(counter);
+                        }
+                        taken.put(date, tmp);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("REST error", error.getMessage());
+            }
+        })
+        {
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Authorization", " Bearer " + token.replace("\"", ""));
+                headers.put("Accept", "application/json");
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
+        };
+        requestQueue.add(req);
+    }
 }
