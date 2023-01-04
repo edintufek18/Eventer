@@ -42,19 +42,18 @@ import java.util.Map;
 public class FifthFragment extends Fragment {
 
     private Button pickDateBtn;
-    private Button paymentButton;
     private TextView selectedDateTV;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private String url = "https://tilenkelc.eu/Eventer/api/rent/full/";
     private RequestQueue requestQueue;
     private String token;
     private Spinner timeSpinner;
+    private Button proceedBtn;
 
     private String subcategory_id;
     private String opens_at;
     private String closes_at;
 
-    //private List<Integer> taken = new ArrayList<Integer>();
     private Map<String, List<Integer>> taken = new HashMap<String, List<Integer>>();
 
     public String infoDate ="";
@@ -65,8 +64,7 @@ public class FifthFragment extends Fragment {
 
         pickDateBtn = root.findViewById(R.id.idBtnPickDate);
         selectedDateTV = root.findViewById(R.id.idTVSelectedDate);
-        //timePickers = root.findViewById(R.id.timepickers);
-        //paymentButton = root.findViewById(R.id.paymentButton);
+        proceedBtn = root.findViewById(R.id.proceedBtn);
 
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
 
@@ -94,13 +92,14 @@ public class FifthFragment extends Fragment {
                 dialog.show();
             }
         });
-        /*paymentButton.setOnClickListener(new View.OnClickListener() {
+
+        proceedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FifthFragment.this)
                         .navigate(R.id.action_FifthFragment_to_Bank);
             }
-        });*/
+        });
 
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
