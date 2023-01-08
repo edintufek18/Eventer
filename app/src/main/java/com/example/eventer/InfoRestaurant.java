@@ -57,7 +57,7 @@ public class InfoRestaurant extends Fragment{
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject object = response.getJSONObject(i);
-                        String category_name = object.getString("category_name");
+                        String category_ime = object.getString("category_name");
                         String subcategories = object.getString("subcategories");
                         String date = object.getString("date");
                         String termin = object.getString("termin");
