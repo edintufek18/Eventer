@@ -34,23 +34,23 @@
 
     <TextView
         android:id="@+id/textview_first3"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="53dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="587dp"
+        android:layout_marginEnd="5dp"
+        android:background="#5E71FF"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="Available tables for reservation"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
     <ScrollView
         android:id="@+id/scrollView3"

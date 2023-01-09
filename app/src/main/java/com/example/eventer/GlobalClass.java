@@ -13,6 +13,8 @@ public class GlobalClass extends Application {
     private String date = "";
     private String time = "";
 
+    private String rent_id = "";
+
     public String getToken() {
         return token;
     }
@@ -60,4 +62,7 @@ public class GlobalClass extends Application {
 
     public String getTime() { return time; }
     public void setTime(String time) { this.time = time; }
+
+    public String getRentId() { return rent_id; }
+    public void setRentId(String id) { this.rent_id = id; }
 }

@@ -1,5 +1,6 @@
 package com.example.eventer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -8,8 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         // getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -60,9 +64,17 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatemen
-        if (id == R.id.profile) {
-            return true;
-        }
+        /*if (id == R.id.profile) {
+            /*if(token.equals("")){
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }else{
+                FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+                tx.replace(R.id.action_InfoRestaurant_self, new InfoRestaurant());
+                tx.commit();
+            }*
+        }*/
         /*else if(id == R.id.logout){
             return true;
         }*/

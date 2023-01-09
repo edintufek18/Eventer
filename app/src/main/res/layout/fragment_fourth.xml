@@ -23,11 +23,13 @@
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="0dp"
-        android:layout_height="650dp"
+        android:layout_height="0dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:src="@android:drawable/screen_background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,15 +41,14 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="587dp"
+        android:background="#5E71FF"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="Available restaurants for reservation"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
@@ -58,15 +59,13 @@
 
         android:layout_height="550dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintBottom_toTopOf="@+id/showReservationsBtn"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck">
 
         <LinearLayout
@@ -75,6 +74,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/showReservationsBtn"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="Your reservations"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

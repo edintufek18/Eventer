@@ -4,6 +4,6 @@
     tools:context=".MainActivity">
     <item
         android:id="@+id/profile"
-        android:title="Profile"
+        android:title="Rent info"
         app:showAsAction="never" />
 </menu>

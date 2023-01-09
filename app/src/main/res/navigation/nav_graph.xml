@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_FourthFragment_to_MasiRezervacija"
             app:destination="@id/MasiRezervacija" />
+        <action
+            android:id="@+id/action_FourthFragment_to_InfoRestaurant"
+            app:destination="@id/InfoRestaurant" />
     </fragment>
     <fragment
         android:id="@+id/FifthFragment"
@@ -73,7 +76,19 @@
         android:id="@+id/InfoRestaurant"
         android:name="com.example.eventer.InfoRestaurant"
         android:label="Info Restaurant"
-        tools:layout="@layout/info_restaurant"/>
+        tools:layout="@layout/info_restaurant">
+        <action
+            android:id="@+id/action_InfoRestaurant_to_rent_info"
+            app:destination="@id/rent_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/rent_info"
+        android:name="com.example.eventer.RentInfo"
+        android:label="Reservation info" >
+        <action
+            android:id="@+id/action_rent_info_self"
+            app:destination="@id/rent_info" />
+    </fragment>
     <fragment
         android:id="@+id/Bank"
         android:name="com.example.eventer.Bank"

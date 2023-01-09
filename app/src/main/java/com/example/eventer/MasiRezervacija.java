@@ -83,16 +83,21 @@ public class MasiRezervacija extends Fragment {
         ll.addView(imageView);
 
         TextView textView = new TextView(getActivity());
-        textView.setText(name);
+        textView.setText(name + "\n\n");
         textView.setTextSize(30);
         textView.setGravity(1);
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((GlobalClass) requireActivity().getApplication()).setSubcategory(id);
+
+                NavHostFragment.findNavController(MasiRezervacija.this)
+                        .navigate(R.id.action_MasiRezervacija_to_FifthFragment);
+            }
+        });
+
         ll.addView(textView);
-
-
-        TextView space = new TextView(getActivity());
-        space.setText(" ");
-
-        ll.addView(space);
     }
 
     public void prikaziProdukte() {

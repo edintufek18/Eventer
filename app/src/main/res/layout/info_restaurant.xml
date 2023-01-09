@@ -21,26 +21,88 @@
 
     <View
         android:id="@+id/view3"
-        android:layout_width="392dp"
-        android:layout_height="619dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></View>
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="389dp"
-        android:layout_height="618dp"
-        android:layout_marginTop="104dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/textview_first2"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="#5E71FF"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="Your reservations"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
 
-    </FrameLayout>
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+
+        android:layout_height="550dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/user_categories_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/futureReservations"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Future"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3" />
+
+    <Button
+        android:id="@+id/pastReservations"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Past"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3" />
+
+    <Button
+        android:id="@+id/allBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:text="All"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toStartOf="@+id/futureReservations"
+        app:layout_constraintStart_toEndOf="@+id/pastReservations" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

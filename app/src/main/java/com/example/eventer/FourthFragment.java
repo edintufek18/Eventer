@@ -3,15 +3,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
-import android.widget.Space;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,20 +23,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.eventer.databinding.FragmentFourthBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,18 +44,24 @@ public class FourthFragment extends Fragment{
 
     private String token = "";
 
+    private Button showReservations;
 
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFourthBinding.inflate(inflater, container, false);
 
         token = ((GlobalClass) getActivity().getApplication()).getToken();
-        System.out.println("new " + token);
+        showReservations = binding.getRoot().findViewById(R.id.showReservationsBtn);
+
         requestQueue = Volley.newRequestQueue(requireActivity().getApplicationContext());
         prikaziKategorije();
+
+        showReservations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(FourthFragment.this)
+                        .navigate(R.id.action_FourthFragment_to_InfoRestaurant);
+            }
+        });
 
         return binding.getRoot();
     }
@@ -109,16 +108,24 @@ public class FourthFragment extends Fragment{
         ll.addView(imageView);
 
         TextView textView = new TextView(getActivity());
-        textView.setText(name);
+        textView.setText(name + "\n\n");
         textView.setTextSize(30);
         textView.setGravity(1);
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((GlobalClass) requireActivity().getApplication()).setCategory(id);
+                ((GlobalClass) requireActivity().getApplication()).setOpens_at(opens_at);
+                ((GlobalClass) requireActivity().getApplication()).setCloses_at(closes_at);
+                ((GlobalClass) requireActivity().getApplication()).setAmount(amount);
+
+                NavHostFragment.findNavController(FourthFragment.this)
+                        .navigate(R.id.action_FourthFragment_to_MasiRezervacija);
+            }
+        });
+
         ll.addView(textView);
-
-
-        TextView space = new TextView(getActivity());
-        space.setText(" ");
-
-        ll.addView(space);
     }
 
     // GET REQUEST KATEGOTIJE
