@@ -80,13 +80,14 @@ public class InfoRestaurant extends Fragment{
                             String id = object.getString("id");
                             String category_ime = object.getString("category_name");
                             String termin = object.getString("termin");
-                            String date = termin.split(" - ")[0] + " " + object.getString("date");
+                            String date = object.getString("date");
+                            String date_check = termin.split(" - ")[0] + " " + object.getString("date");
                             String status = object.getString("status");
 
                             DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm dd.MM.yyyy");
 
                             LocalDateTime start = LocalDateTime.parse(today, format);
-                            LocalDateTime stop = LocalDateTime.parse(date, format);
+                            LocalDateTime stop = LocalDateTime.parse(date_check, format);
 
                             if(start.isAfter(stop)){
                                 addItem(id, termin, date, category_ime, status);
@@ -120,8 +121,9 @@ public class InfoRestaurant extends Fragment{
                             String id = object.getString("id");
                             String category_ime = object.getString("category_name");
                             String termin = object.getString("termin");
-                            String date = termin.split(" - ")[0] + " " + object.getString("date");
+                            String date_check = termin.split(" - ")[0] + " " + object.getString("date");
                             String status = object.getString("status");
+                            String date = object.getString("date");
 
                             addItem(id, termin, date, category_ime, status);
 
@@ -158,13 +160,14 @@ public class InfoRestaurant extends Fragment{
                             String id = object.getString("id");
                             String category_ime = object.getString("category_name");
                             String termin = object.getString("termin");
-                            String date = termin.split(" - ")[0] + " " + object.getString("date");
+                            String date_check = termin.split(" - ")[0] + " " + object.getString("date");
+                            String date = object.getString("date");
                             String status = object.getString("status");
 
                             DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm dd.MM.yyyy");
 
                             LocalDateTime start = LocalDateTime.parse(today, format);
-                            LocalDateTime stop = LocalDateTime.parse(date, format);
+                            LocalDateTime stop = LocalDateTime.parse(date_check, format);
 
                             if(start.isBefore(stop)){
                                 addItem(id, termin, date, category_ime, status);
